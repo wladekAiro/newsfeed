@@ -9,7 +9,7 @@ Spring mvc application for pension system
     * NPM
 # Database
 
-1.Create db `newsfeed'
+Install MysQl >> Create db `newsfeed'
 
 # How to run
 

@@ -6,10 +6,10 @@ import com.wladek.newsfeed.repository.FeedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +37,12 @@ public class FeedServiceImpl implements FeedService {
         for (NewsFeed newsFeed : newsFeeds) {
             feedDaoList.add(newsFeed.toDao());
         }
-        
+
         return feedDaoList;
     }
 
     @Override
+    @Transactional
     public FeedDao addView(FeedDao feedDao) {
         NewsFeed newsFeed = repository.findOne(feedDao.getId());
         newsFeed.setViews(newsFeed.getViews() + new Long(1));
@@ -50,6 +51,7 @@ public class FeedServiceImpl implements FeedService {
     }
 
     @Override
+    @Transactional
     public boolean refreshFeeds() {
         boolean result = false;
         try {
@@ -106,7 +108,6 @@ public class FeedServiceImpl implements FeedService {
                 result = substr.substring(0, lastidx);
             }
         }
-
 
         return result;
     }
