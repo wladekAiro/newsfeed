@@ -1,4 +1,4 @@
-Spring mvc application for pension system
+Spring mvc news feed app
 # Requirements
 
 * Java 1.8
