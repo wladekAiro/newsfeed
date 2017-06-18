@@ -25,7 +25,9 @@
                     <div class="row">
                     <ul>
                         <li>
-                            <a v-bind:href="feed.url"><h3>{{ feed.title }}</h3></a>
+                            <a @click="rateLink(feed)" v-bind:href="feed.url">
+                                <h3>{{ feed.title }}</h3>
+                            </a>
                         </li>
                     </ul>
                     </div>
@@ -48,6 +50,7 @@
 <script src="/resources/components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/resources/components/holderjs/holder.js"></script>
 <script src="/resources/components/vue/dist/vue.js"></script>
+<script src="/resources/components/vue-resource/dist/vue-resource.js"></script>
 <script src="/resources/js/main.js"></script>
 </body>
 </html>

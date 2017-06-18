@@ -3,10 +3,7 @@ package com.wladek.newsfeed.controllers;
 import com.wladek.newsfeed.daos.FeedDao;
 import com.wladek.newsfeed.service.FeedService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,12 @@ public class FeedController {
     @ResponseBody
     public List<FeedDao> getFeeds() {
         return feedService.getFeeds();
+    }
+
+    @RequestMapping(value = "/ratelink", method = RequestMethod.PUT , consumes = "application/json")
+    @ResponseBody
+    public String rateLink(@RequestBody FeedDao feedDao) {
+        feedService.addView(feedDao);
+        return "Ok";
     }
 }

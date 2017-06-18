@@ -37,7 +37,7 @@ public class FeedServiceImpl implements FeedService {
         for (NewsFeed newsFeed : newsFeeds) {
             feedDaoList.add(newsFeed.toDao());
         }
-
+        
         return feedDaoList;
     }
 
