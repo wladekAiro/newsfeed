@@ -7,18 +7,21 @@ var app = new Vue({
         items : [],
         error : null
     },
+    mounted : function() {
+        this.getAll();
+    },
     methods : {
-        ready: function () {
+        getAll: function () {
             this.loadData();
         },
         loadData: function () {
+            var self = this;
             $.ajax({
                 type: "GET",
                 url: "/api/newsfeed",
                 dataType: "json",
                 success: function (data) {
-                    this.items = data;
-                    alert(data);
+                    self.items = data;
                 },
                 error: function (error) {
                     alert(JSON.stringify(error));

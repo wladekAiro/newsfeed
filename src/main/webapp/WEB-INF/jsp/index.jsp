@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
@@ -17,20 +17,28 @@
 </div>
 
 <div class="col-sm-2"></div>
-    <div class="col-sm-8">
-        <div id="app">
-            <button v-on:click="ready">Refresh</button>
-            <div v-for="feed in items | json">
-                <div class="row">
-                    <div class="col-sm-10">
-                        <ul>
-                            {{ feed.title }}
-                        </ul>
+<div class="col-sm-8">
+    <div id="app">
+        <div v-for="feed in items">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                    <ul>
+                        <li>
+                            <a v-bind:href="feed.url"><h3>{{ feed.title }}</h3></a>
+                        </li>
+                    </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>{{ feed.description }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 <div class="col-sm-2"></div>
 
 <!-- Bootstrap core JavaScript
