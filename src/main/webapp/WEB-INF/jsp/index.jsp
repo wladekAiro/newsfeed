@@ -19,8 +19,16 @@
 <div class="col-sm-2"></div>
     <div class="col-sm-8">
         <div id="app">
-            {{ message }}
-            <button v-on:click="refreshFeed">Refresh</button>
+            <button v-on:click="ready">Refresh</button>
+            <div v-for="feed in items | json">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <ul>
+                            {{ feed.title }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 <div class="col-sm-2"></div>

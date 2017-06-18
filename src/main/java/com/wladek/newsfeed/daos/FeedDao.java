@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class FeedDao implements Serializable {
     private Long id;
     private String title;
+    private String description;
     private String url;
     private Long views;
 
@@ -51,7 +52,16 @@ public class FeedDao implements Serializable {
         newsFeed.setTitle(title);
         newsFeed.setUrl(url);
         newsFeed.setViews(views);
+        newsFeed.setDescription(description);
 
         return newsFeed;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

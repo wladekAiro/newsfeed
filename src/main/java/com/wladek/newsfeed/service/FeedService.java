@@ -10,4 +10,5 @@ import java.util.List;
 public interface FeedService {
     public List<FeedDao> getFeeds();
     public FeedDao addView(FeedDao feedDao);
+    public boolean refreshFeeds();
 }

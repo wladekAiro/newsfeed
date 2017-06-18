@@ -4,26 +4,26 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Hello Vue!',
-        feeds : [],
+        items : [],
         error : null
     },
     methods : {
-        refreshFeed : function () {
+        ready: function () {
             this.loadData();
         },
-        loadData : function () {
+        loadData: function () {
             $.ajax({
-                type : "GET",
-                url : "/api/newsfeed",
+                type: "GET",
+                url: "/api/newsfeed",
                 dataType: "json",
                 success: function (data) {
-                    self.feeds = data;
+                    this.items = data;
+                    alert(data);
                 },
                 error: function (error) {
                     alert(JSON.stringify(error));
                 }
-            });
+            })
         }
     }
 });

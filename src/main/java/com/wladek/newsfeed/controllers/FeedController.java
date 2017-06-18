@@ -19,9 +19,9 @@ public class FeedController {
     @Autowired
     FeedService feedService;
 
-    @RequestMapping(value = "/newsfeed" , method = RequestMethod.GET)
+    @RequestMapping(value = "/newsfeed", method = RequestMethod.GET)
     @ResponseBody
-    public List<FeedDao> getFeeds(){
+    public List<FeedDao> getFeeds() {
         return feedService.getFeeds();
     }
 }

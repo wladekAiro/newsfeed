@@ -2,15 +2,24 @@ package com.wladek.newsfeed.models;
 
 import com.wladek.newsfeed.daos.FeedDao;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 
 /**
  * Created by wladek on 6/17/17.
  */
 @Entity
 public class NewsFeed extends AbstractModel{
+    @Lob
+    @Column( length = 100000 )
     private String title;
+    @Lob
+    @Column( length = 100000 )
     private String url;
+    @Lob
+    @Column( length = 100000 )
+    private String description;
     private Long views = new Long(0);
 
     public String getTitle() {
@@ -43,7 +52,16 @@ public class NewsFeed extends AbstractModel{
         feedDao.setTitle(title);
         feedDao.setUrl(url);
         feedDao.setViews(views);
+        feedDao.setDescription(description);
 
         return feedDao;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
