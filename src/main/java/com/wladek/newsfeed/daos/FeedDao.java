@@ -1,6 +1,6 @@
 package com.wladek.newsfeed.daos;
 
-import com.wladek.newsfeed.domain.Feed;
+import com.wladek.newsfeed.models.NewsFeed;
 
 import java.io.Serializable;
 
@@ -45,13 +45,13 @@ public class FeedDao implements Serializable {
         this.id = id;
     }
 
-    public Feed toFeed(){
-        Feed feed = new Feed();
-        feed.setId(id);
-        feed.setTitle(title);
-        feed.setUrl(url);
-        feed.setViews(views);
+    public NewsFeed toFeed(){
+        NewsFeed newsFeed = new NewsFeed();
+        newsFeed.setId(id);
+        newsFeed.setTitle(title);
+        newsFeed.setUrl(url);
+        newsFeed.setViews(views);
 
-        return feed;
+        return newsFeed;
     }
 }

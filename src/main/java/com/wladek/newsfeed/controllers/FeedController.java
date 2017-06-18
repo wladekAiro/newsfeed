@@ -1,4 +1,4 @@
-package com.wladek.newsfeed.web.front;
+package com.wladek.newsfeed.controllers;
 
 import com.wladek.newsfeed.daos.FeedDao;
 import com.wladek.newsfeed.service.FeedService;
@@ -14,11 +14,12 @@ import java.util.List;
  * Created by wladek on 6/17/17.
  */
 @RestController
-@RequestMapping(value = "/rest")
+@RequestMapping(value = "/api")
 public class FeedController {
     @Autowired
     FeedService feedService;
-    @RequestMapping(value = "/list" , method = RequestMethod.GET)
+
+    @RequestMapping(value = "/newsfeed" , method = RequestMethod.GET)
     @ResponseBody
     public List<FeedDao> getFeeds(){
         return feedService.getFeeds();

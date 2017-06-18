@@ -1,7 +1,7 @@
 package com.wladek.newsfeed.service;
 
 import com.wladek.newsfeed.daos.FeedDao;
-import com.wladek.newsfeed.domain.Feed;
+import com.wladek.newsfeed.models.NewsFeed;
 import com.wladek.newsfeed.repository.FeedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,11 +19,11 @@ public class FeedServiceImpl implements FeedService {
 
     @Override
     public List<FeedDao> getFeeds() {
-        List<Feed> feeds = repository.findAllOrderByViewsDesc();
+        List<NewsFeed> newsFeeds = repository.findAll();
         List<FeedDao> feedDaoList = new ArrayList<>();
 
-        for (Feed feed : feeds) {
-            feedDaoList.add(feed.toDao());
+        for (NewsFeed newsFeed : newsFeeds) {
+            feedDaoList.add(newsFeed.toDao());
         }
 
         return feedDaoList;
@@ -31,9 +31,9 @@ public class FeedServiceImpl implements FeedService {
 
     @Override
     public FeedDao addView(FeedDao feedDao) {
-        Feed feed = repository.findOne(feedDao.getId());
-        feed.setViews(feed.getViews() + new Long(1));
-        repository.save(feed);
-        return feed.toDao();
+        NewsFeed newsFeed = repository.findOne(feedDao.getId());
+        newsFeed.setViews(newsFeed.getViews() + new Long(1));
+        repository.save(newsFeed);
+        return newsFeed.toDao();
     }
 }

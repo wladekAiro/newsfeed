@@ -1,4 +1,4 @@
-package com.wladek.newsfeed.domain;
+package com.wladek.newsfeed.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;

@@ -1,5 +1,4 @@
 package com.wladek.newsfeed.config;
-import com.wladek.newsfeed.domain.enumeration.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -69,8 +68,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .userDetailsService(userDetailsService())
                 .and()
             .authorizeRequests()
-                .antMatchers(permitAllUrls).permitAll()
-                .anyRequest().hasRole(UserRole.USER.name());
+                .antMatchers(permitAllUrls).permitAll();
+//                .anyRequest().hasRole(UserRole.USER.name());
 
 
         http.csrf().disable();

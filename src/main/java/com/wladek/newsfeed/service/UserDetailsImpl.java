@@ -1,7 +1,6 @@
 package com.wladek.newsfeed.service;
 
-import com.wladek.newsfeed.domain.User;
-import com.wladek.newsfeed.domain.enumeration.UserState;
+import com.wladek.newsfeed.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +25,7 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> roles = new ArrayList<>();
-        roles.add(new SimpleGrantedAuthority(ROLE_PREFIX + user.getUserRole().name()));
+//        roles.add(new SimpleGrantedAuthority(ROLE_PREFIX + user.getUserRole().name()));
         return roles;
     }
 
@@ -42,12 +41,14 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return user.getUserState() == UserState.ACTIVE;
+//        return user.getUserState() == UserState.ACTIVE;
+        return false;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return user.getUserState() != UserState.LOCKED;
+//        return user.getUserState() != UserState.LOCKED;
+        return false;
     }
 
     @Override
@@ -57,7 +58,8 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.getUserState() == UserState.ACTIVE;
+//        return user.getUserState() == UserState.ACTIVE;
+        return false;
     }
 
     public User getUser() {

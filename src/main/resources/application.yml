@@ -1,7 +1,7 @@
 spring:
  datasource:
      driverClassName: com.mysql.jdbc.Driver
-     url: jdbc:mysql://localhost:3306/newdfeed
+     url: jdbc:mysql://localhost:3306/newsfeed
      username: root
      password: toor
  jpa: # JPA

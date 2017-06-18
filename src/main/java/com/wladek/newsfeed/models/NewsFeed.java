@@ -1,4 +1,4 @@
-package com.wladek.newsfeed.domain;
+package com.wladek.newsfeed.models;
 
 import com.wladek.newsfeed.daos.FeedDao;
 
@@ -8,7 +8,7 @@ import javax.persistence.Entity;
  * Created by wladek on 6/17/17.
  */
 @Entity
-public class Feed extends AbstractModel{
+public class NewsFeed extends AbstractModel{
     private String title;
     private String url;
     private Long views = new Long(0);

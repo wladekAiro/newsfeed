@@ -1,6 +1,6 @@
 package com.wladek.newsfeed.service;
 
-import com.wladek.newsfeed.domain.User;
+import com.wladek.newsfeed.models.User;
 import com.wladek.newsfeed.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

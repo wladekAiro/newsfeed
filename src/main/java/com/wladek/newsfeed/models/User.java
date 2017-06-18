@@ -18,16 +18,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.wladek.newsfeed.domain;
-
-import com.wladek.newsfeed.domain.enumeration.UserRole;
-import com.wladek.newsfeed.domain.enumeration.UserState;
+package com.wladek.newsfeed.models;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -54,12 +50,6 @@ public class User extends AbstractModel{
     private String lang;
 
     private String url;
-
-    @Enumerated(EnumType.STRING)
-    private UserRole userRole;
-
-    @Enumerated(EnumType.STRING)
-    private UserState userState;
 
     @ManyToMany(mappedBy = "users")
     private Set<Role> roles;
@@ -110,22 +100,6 @@ public class User extends AbstractModel{
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public UserState getUserState() {
-        return userState;
-    }
-
-    public UserRole getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
-    }
-
-    public void setUserState(UserState userState) {
-        this.userState = userState;
     }
 
     public Set<Role> getRoles() {

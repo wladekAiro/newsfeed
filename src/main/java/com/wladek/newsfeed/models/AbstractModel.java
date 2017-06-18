@@ -1,4 +1,4 @@
-package com.wladek.newsfeed.domain;
+package com.wladek.newsfeed.models;
 import javax.persistence.*;
 /**
  * Created by wladek on 25/11/14.

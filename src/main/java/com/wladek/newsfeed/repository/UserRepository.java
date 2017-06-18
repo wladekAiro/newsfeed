@@ -1,6 +1,6 @@
 package com.wladek.newsfeed.repository;
 
-import com.wladek.newsfeed.domain.User;
+import com.wladek.newsfeed.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
